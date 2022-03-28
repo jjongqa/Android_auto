@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite thread-count="1" verbose="1" name="Test" annotations="JDK" parallel="tests">
+
+
+    <test name="AppRun">
+        <classes>
+            <class name="AppRun.AppRun"/>
+        </classes>
+    </test>
+
+</suite>

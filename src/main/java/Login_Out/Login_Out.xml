@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite thread-count="1" verbose="1" name="Test" annotations="JDK" parallel="tests">
+
+
+    <test name="Login">
+        <classes>
+            <class name="Login_Out.Login"/>
+        </classes>
+    </test>
+
+    <test name="Logout">
+        <classes>
+            <class name="Login_Out.Logout"/>
+        </classes>
+    </test>
+
+
+</suite>
