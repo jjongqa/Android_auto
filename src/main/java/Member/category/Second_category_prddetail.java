@@ -7,6 +7,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -47,8 +48,10 @@ public class Second_category_prddetail {
 
 
         // 샛별카테고리 선택
-        MobileElement category_list_tap = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
-        category_list_tap.click();
+        MobileElement category_list_tap = driver.findElementByXPath(" //android.widget.TextView [@index='2']");
+        if (category_list_tap.getText().equals("샛별확장_통합테스트")) {
+            category_list_tap.click();
+        }
         sleep(3000);
 
 
@@ -56,7 +59,6 @@ public class Second_category_prddetail {
         MobileElement smallcategory_tap = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.TextView");
         smallcategory_tap.click();
         sleep(3000);
-
 
         // 201 카테고리 리스트 페이지
         MobileElement second_category_page = driver.findElementByAccessibilityId("210");
@@ -66,16 +68,14 @@ public class Second_category_prddetail {
                 System.out.println("201 카테고리 리스트 페이지 확인");
             }
         }
-        sleep(3000);
+        sleep(5000);
 
         //상품 선택
         MobileElement prd = driver.findElementById("com.dbs.kurly.m2.beta:id/productNameView");
-        {
             if (prd.getText().equals("[마켓베라즈] 양념 생연어장 200g(냉장)")) {
-                prd.click();
-            }
         }
-        sleep(2000);
+            prd.click();
+        sleep(10000);
 
         //다른고객이 함께 본 상품
         MobileElement prd_scroll = driver.findElement(MobileBy.AndroidUIAutomator(
@@ -85,6 +85,14 @@ public class Second_category_prddetail {
 
         System.out.println("다른 고객이 함꼐 본 상품 노출 확인");
 
+
+    }
+
+    @AfterTest
+    public void aftertest() throws InterruptedException {
+
+        sleep(3000);
+        driver.quit();
 
     }
 
