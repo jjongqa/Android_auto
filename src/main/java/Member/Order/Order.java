@@ -1,4 +1,4 @@
-package Member.Cart;
+package Member.Order;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -83,12 +83,37 @@ public class Order {
         order_btn.click();
         sleep(5000);
 
-        // 주문서 이동 확인
-        MobileElement order_page = (MobileElement) driver.findElementByXPath( "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView");
-        assert order_page.getText().equals("주문서") : "Actual value is : " + order_page.getText() + "not match with expected value: 주문서 이동 실패";
-        sleep(500);
+        // 적립금 모두사용
+        MobileElement mileage = driver.findElementByClassName("android.widget.Button");
+        if (mileage.getText().equals("모두 사용")) {
+            mileage.click();
+        }
+        sleep(3000);
 
-        System.out.println("주문서 확인");
+        //결제진행 필수동의
+        MobileElement agreement = driver.findElementByClassName("android.widget.CheckBox");
+        if (agreement.getText().equals("결제 진행 필수 동의")) {
+            agreement.click();
+        }
+        sleep(3000);
+
+
+        MobileElement element = driver.findElement(MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().resourceId(\"kurlyWrap\")).getChildByText("
+                        + "new UiSelector().className(\"android.widget.Button\"), \"0원 결제하기\")"));
+        sleep(1000);
+
+        //결제하기
+        MobileElement payment = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[8]/android.widget.Button");
+        payment.click();
+        sleep(10000);
+
+        //주문완료 페이지
+        MobileElement order_complete = driver.findElementByClassName("android.widget.TextView");
+        assert order_complete.getText().equals("주문완료") : "기대결과값 :" + order_complete.getText() + "이슈발생 : 주문완료 페이지 이동 이슈";
+
+        System.out.println("주문완료 확인");
+
 
     }
 
@@ -100,4 +125,3 @@ public class Order {
         driver.quit();
     }
 }
-
