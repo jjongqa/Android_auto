@@ -1,4 +1,4 @@
-package Member.Mykurly;
+package Non_member.Mykurly;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
