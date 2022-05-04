@@ -4,84 +4,84 @@
 
 
     <!-- App_00052 -->
-    <test name="Add_address">
+    <test name="App_00052">
         <classes>
             <class name="Member.Address.Add_address"/>
         </classes>
     </test>
 
     <!-- App_00063 -->
-    <test name="Change_address">
+    <test name="App_00063">
         <classes>
             <class name="Member.Address.Change_address"/>
         </classes>
     </test>
 
     <!-- App_00066 -->
-    <test name="Nonmember_Change_address">
+    <test name="App_00066">
         <classes>
             <class name="Non_member.Address.Add_address"/>
         </classes>
     </test>
 
     <!-- App_00088 -->
-    <test name="Cart_address">
+    <test name="App_00088">
         <classes>
             <class name="Member.Cart.Address"/>
         </classes>
     </test>
 
     <!-- App_00132 -->
-    <test name="Cart_order">
+    <test name="App_00132">
         <classes>
             <class name="Member.Cart.Order"/>
         </classes>
     </test>
 
     <!-- App_00184 -->
-    <test name="Home_mainbanner">
+    <test name="App_00184">
         <classes>
             <class name="Member.Home.Mainbanner"/>
         </classes>
     </test>
 
     <!-- App_00242 -->
-    <test name="Home_smallbanner">
+    <test name="App_00242">
         <classes>
             <class name="Member.Home.Small_banner"/>
         </classes>
     </test>
 
     <!-- App_00720 -->
-    <test name="Category_Gift">
+    <test name="App_00720">
         <classes>
             <class name="Member.category.Gift_product"/>
         </classes>
     </test>
 
     <!-- App_00728 -->
-    <test name="Category_second">
+    <test name="App_00728">
         <classes>
             <class name="Member.category.Second_category_prddetail"/>
         </classes>
     </test>
 
     <!-- App_00774 -->
-    <test name="Category_recommend">
+    <test name="App_00774">
         <classes>
             <class name="Member.category.Kurly_recommend"/>
         </classes>
     </test>
 
     <!-- App_00840 -->
-    <test name="Search_result">
+    <test name="App_00840">
         <classes>
             <class name="Member.Search.Search_result"/>
         </classes>
     </test>
 
     <!-- App_00847 -->
-    <test name="Search_discount">
+    <test name="App_00847">
         <classes>
             <class name="Member.Search.Search_discount"/>
         </classes>
