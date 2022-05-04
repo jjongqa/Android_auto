@@ -23,23 +23,77 @@ public class Second_category_prddetail {
     AndroidDriver<AndroidElement> driver;
 
     @BeforeTest
-    public void beforeTest() throws MalformedParameterizedTypeException, MalformedURLException {
+    public void beforeTest() throws MalformedParameterizedTypeException, MalformedURLException, InterruptedException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("appPackage", "com.dbs.kurly.m2.beta");
         capabilities.setCapability("appActivity", "com.dbs.kurly.m2.a_new_presentation.deeplink.DeepLinkActivity");
-        capabilities.setCapability("noReset", "true");
+        capabilities.setCapability("noReset", "false");
 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+
+        //앱실행
+        sleep(5000);
+
+        //권한팝업 확인
+        MobileElement popup = driver.findElementById("com.dbs.kurly.m2.beta:id/okButton");
+        popup.click();
+        sleep(1000);
+
+        //혜택정보 확인
+        MobileElement popup2 = driver.findElementById("com.dbs.kurly.m2.beta:id/okButton");
+        popup2.click();
+        sleep(1000);
+
+        //메인팝업 오늘 하루 안보기
+        MobileElement mainpopup1 = driver.findElementById("android:id/button2");
+        if (mainpopup1.getText().equals("오늘 하루 안 보기")) {
+            mainpopup1.click();
+        }
+        sleep(1000);
+
+        MobileElement mainpopup2 = driver.findElementById("android:id/button2");
+        if (mainpopup2.getText().equals("오늘 하루 안 보기")) {
+            mainpopup2.click();
+        }
+        sleep(1000);
+
+
+        // 마이컬리 탭 선택
+        MobileElement Mykurly = driver.findElementById("com.dbs.kurly.m2.beta:id/mykurly");
+        Mykurly.click();
+        sleep(1000);
+
+        // 로그인/회원가입 버튼 선택
+        MobileElement LoginSignup_Btn = driver.findElementById("com.dbs.kurly.m2.beta:id/loginBtn");
+        LoginSignup_Btn.click();
+        sleep(1000);
+
+        // 아이디 입력
+        MobileElement ID_input = driver.findElementById("com.dbs.kurly.m2.beta:id/idEditView");
+        ID_input.sendKeys("autotest");
+        sleep(500);
+
+        // 패스워드 입력
+        MobileElement PW_input = driver.findElementById("com.dbs.kurly.m2.beta:id/passwordEditView");
+        PW_input.sendKeys("qawsedrf12");
+        sleep(500);
+
+        // 로그인 버튼 선택
+        MobileElement Login_Btn = driver.findElementById("com.dbs.kurly.m2.beta:id/loginButton");
+        Login_Btn.click();
+        sleep(1000);
 
     }
 
     @Test
     public void Second_category_prddetail() throws InterruptedException {
 
-        //앱실행
-        sleep(5000);
+        //홈 탭
+        MobileElement Home = driver.findElementById("com.dbs.kurly.m2.beta:id/home");
+        Home.click();
+        sleep(500);
 
         // 카테고리 탭 선택
         MobileElement category_btn = (MobileElement) driver.findElementByAccessibilityId("카테고리");
@@ -72,18 +126,13 @@ public class Second_category_prddetail {
 
         //상품 선택
         MobileElement prd = driver.findElementById("com.dbs.kurly.m2.beta:id/productNameView");
-            if (prd.getText().equals("[마켓베라즈] 양념 생연어장 200g(냉장)")) {
+        if (prd.getText().equals("[마켓베라즈] 양념 생연어장 200g(냉장)")) {
         }
-            prd.click();
+        prd.click();
         sleep(10000);
 
-        //다른고객이 함께 본 상품
-        MobileElement prd_scroll = driver.findElement(MobileBy.AndroidUIAutomator(
-                "new UiScrollable(new UiSelector().resourceId(\"com.dbs.kurly.m2.beta:id/product_detail_pager\")).getChildByText("
-                        + "new UiSelector().className(\"android.widget.TextView\"), \"다른 고객이 함께 본 상품\")"));
-        sleep(1000);
 
-        System.out.println("다른 고객이 함꼐 본 상품 노출 확인");
+        System.out.println("상품상세 확인");
 
 
     }

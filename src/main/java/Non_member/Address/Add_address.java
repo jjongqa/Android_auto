@@ -21,16 +21,41 @@ public class Add_address {
     AndroidDriver<AndroidElement> driver;
 
     @BeforeTest
-    public void beforeTest() throws MalformedParameterizedTypeException, MalformedURLException {
+    public void beforeTest() throws MalformedParameterizedTypeException, MalformedURLException, InterruptedException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("appPackage", "com.dbs.kurly.m2.beta");
         capabilities.setCapability("appActivity", "com.dbs.kurly.m2.a_new_presentation.deeplink.DeepLinkActivity");
-        capabilities.setCapability("noReset", "true");
+        capabilities.setCapability("noReset", "false");
 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
+        //앱실행
+        sleep(5000);
+
+        //권한팝업 확인
+        MobileElement popup = driver.findElementById("com.dbs.kurly.m2.beta:id/okButton");
+        popup.click();
+        sleep(1000);
+
+        //혜택정보 확인
+        MobileElement popup2 = driver.findElementById("com.dbs.kurly.m2.beta:id/okButton");
+        popup2.click();
+        sleep(1000);
+
+        //메인팝업 오늘 하루 안보기
+        MobileElement mainpopup1 = driver.findElementById("android:id/button2");
+        if (mainpopup1.getText().equals("오늘 하루 안 보기")) {
+            mainpopup1.click();
+        }
+        sleep(1000);
+
+        MobileElement mainpopup2 = driver.findElementById("android:id/button2");
+        if (mainpopup2.getText().equals("오늘 하루 안 보기")) {
+            mainpopup2.click();
+        }
+        sleep(1000);
     }
 
     @Test
