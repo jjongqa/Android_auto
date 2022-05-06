@@ -88,9 +88,68 @@
     </test>
 
 
+    <!-- App_00944 -->
+    <test name="App_00944">
+        <classes>
+            <class name="Member.Mykurly.Reserve"/>
+        </classes>
+    </test>
 
+    <!-- App_00966 -->
+    <test name="App_00966">
+        <classes>
+            <class name="Member.Mykurly.Order_history"/>
+        </classes>
+    </test>
 
+    <!-- App_00980 -->
+    <test name="App_00980">
+        <classes>
+            <class name="Member.Mykurly.Order_history_detail"/>
+        </classes>
+    </test>
 
+    <!-- App_01019 -->
+    <test name="App_01019">
+        <classes>
+            <class name="Member.Mykurly.Gift_history"/>
+        </classes>
+    </test>
+
+    <!-- App_01236 -->
+    <test name="App_01236">
+        <classes>
+            <class name="Member.Mykurly.Review"/>
+        </classes>
+    </test>
+
+    <!-- App_01258 -->
+    <test name="App_01258">
+        <classes>
+            <class name="Member.Mykurly.Address_manage"/>
+        </classes>
+    </test>
+
+    <!-- App_01354 -->
+    <test name="App_01354">
+        <classes>
+            <class name="Member.Mykurly.Inquiry"/>
+        </classes>
+    </test>
+
+    <!-- App_01436 -->
+    <test name="App_01436">
+        <classes>
+            <class name="Non_member.Find_ID.ID_email"/>
+        </classes>
+    </test>
+
+    <!-- App_01741 ~ 1742 -->
+    <test name="App_01741 ~ 1742">
+        <classes>
+            <class name="Member.Prd_detail.Pick_onoff"/>
+        </classes>
+    </test>
 
 
 </suite>

@@ -25,16 +25,65 @@ public class Address_manage {
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("appPackage", "com.dbs.kurly.m2.beta");
         capabilities.setCapability("appActivity", "com.dbs.kurly.m2.a_new_presentation.deeplink.DeepLinkActivity");
-        capabilities.setCapability("noReset", "true");
+        capabilities.setCapability("noReset", "false");
 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+
+        //앱실행
+        sleep(5000);
+
+        //권한팝업 확인
+        MobileElement popup = driver.findElementById("com.dbs.kurly.m2.beta:id/okButton");
+        popup.click();
+        sleep(1000);
+
+        //혜택정보 확인
+        MobileElement popup2 = driver.findElementById("com.dbs.kurly.m2.beta:id/okButton");
+        popup2.click();
+        sleep(1000);
+
+        //메인팝업 오늘 하루 안보기
+        MobileElement mainpopup1 = driver.findElementById("android:id/button2");
+        if (mainpopup1.getText().equals("오늘 하루 안 보기")) {
+            mainpopup1.click();
+        }
+        sleep(1000);
+
+        MobileElement mainpopup2 = driver.findElementById("android:id/button2");
+        if (mainpopup2.getText().equals("오늘 하루 안 보기")) {
+            mainpopup2.click();
+        }
+        sleep(1000);
+
+
+        // 마이컬리 탭 선택
+        MobileElement Mykurly = driver.findElementById("com.dbs.kurly.m2.beta:id/mykurly");
+        Mykurly.click();
+        sleep(1000);
+
+        // 로그인/회원가입 버튼 선택
+        MobileElement LoginSignup_Btn = driver.findElementById("com.dbs.kurly.m2.beta:id/loginBtn");
+        LoginSignup_Btn.click();
+        sleep(1000);
+
+        // 아이디 입력
+        MobileElement ID_input = driver.findElementById("com.dbs.kurly.m2.beta:id/idEditView");
+        ID_input.sendKeys("autotest");
+        sleep(500);
+
+        // 패스워드 입력
+        MobileElement PW_input = driver.findElementById("com.dbs.kurly.m2.beta:id/passwordEditView");
+        PW_input.sendKeys("qawsedrf12");
+        sleep(500);
+
+        // 로그인 버튼 선택
+        MobileElement Login_Btn = driver.findElementById("com.dbs.kurly.m2.beta:id/loginButton");
+        Login_Btn.click();
+        sleep(2000);
     }
 
     @Test
     public void Address_manage() throws InterruptedException {
-
-        //앱실행
-        sleep(5000);
 
 
         //마이컬리 탭 선택
